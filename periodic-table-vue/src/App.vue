@@ -1,4 +1,5 @@
 <template>
+  <title>Periodic Table</title>
   <router-view/>
 </template>
 

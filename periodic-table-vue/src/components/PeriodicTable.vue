@@ -141,10 +141,11 @@ export default {
 <style>
 .periodic-table {
     display: grid;
-    grid-template-columns: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr); /* Ensure 18 columns for the periodic table */
     gap: 5px;
     padding: 20px;
     grid-auto-rows: minmax(100px, auto);
+    overflow-y: hidden; /* Prevent scrolling overflow below the elements */
 }
 
 .element {
@@ -153,6 +154,7 @@ export default {
     text-align: center;
     background-color: #f9f9f9;
     position: relative;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
 }
 
 .number {
@@ -301,4 +303,27 @@ export default {
 .element:nth-child(116) { grid-column: 16; grid-row: 7; }
 .element:nth-child(117) { grid-column: 17; grid-row: 7; }
 .element:nth-child(118) { grid-column: 18; grid-row: 7; }
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .periodic-table {
+        grid-template-columns: repeat(4, 1fr); /* Adjust to 4 columns for mobile */
+        gap: 2px;
+        padding: 10px;
+    }
+
+    .element {
+        padding: 5px;
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .symbol {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+
+    .name, .weight, .number {
+        font-size: 0.7em;
+    }
+}
 </style>
